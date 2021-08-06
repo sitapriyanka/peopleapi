@@ -1,0 +1,20 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: peopleapi
+  namespace: monitoring
+spec:
+  selector:
+    app: peopleapi
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: peopleapi
+    spec:
+      containers:
+        - name: peopleapi
+          image: peddadas/testhpa-repo:peopleapi
+          ports:
+            - containerPort: 7000
+            - containerPort: 5000
