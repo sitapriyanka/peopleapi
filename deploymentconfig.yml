@@ -41,7 +41,6 @@ spec:
   metadata:
     name: peopleapi-route
   spec: 
-   host: peopleapi
    port:
     sourcePort: web
     targetPort: web
