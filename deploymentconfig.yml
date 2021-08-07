@@ -1,3 +1,4 @@
+---
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
@@ -17,4 +18,4 @@ spec:
           image: peddadas/testhpa-repo:peopleapi
           ports:
             - containerPort: 7000
-            - containerPort: 5000
+---
