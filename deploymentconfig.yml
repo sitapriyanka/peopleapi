@@ -103,7 +103,7 @@ data:
     rules:
 
     - seriesQuery:
-    'http_requests_received_total{namespace!="",pod!=""}'
+    'http_requests_completed_time{namespace!="",pod!=""}'
       seriesFilters: []
       resources:
         overrides:
@@ -112,9 +112,10 @@ data:
           pod:
             resource: pod
       name:
-        matches: "http_requests_received_total"
-        as: "http_requests_received_total_per_second"
-      metricsQuery: sum(rate(http_requests_received_total{<<.LabelMatchers>>}[2m])) by (<<.GroupBy>>)
+        matches: "http_requests_completed_time"
+        as: "http_requests_completed_time_per_second"
+      metricsQuery: (sum(rate(http_request_duration_seconds_sum{code="200",method="GET",controller="People",action="Get"}[5m]))
+/sum(rate(http_request_duration_seconds_count{code="200",method="GET",controller="People",action="Get"}[5m]))) by (<<.GroupBy>>)
 	  
  ----
 apiVersion: autoscaling/v2beta1
@@ -131,6 +132,6 @@ spec:
   metrics:
   - type: Pods
     pods:
-      metricName: http_requests_received_total_per_second
-      targetAverageValue: "500m"
+      metricName: http_requests_completed_time_per_second
+      targetAverageValue: "5s"
 ---      
