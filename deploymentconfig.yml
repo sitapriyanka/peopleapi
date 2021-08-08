@@ -15,9 +15,10 @@ spec:
     spec:
       containers:
         - name: peopleapi
-          image: peddadas/testhpa-repo:people2api
+          image: peddadas/testhpa-repo:peopleapi
           ports:
-	  - containerPort: 5000 7000
+            - containerPort: 7000
+            - containerPort: 5000
 ---
 apiVersion: v1
 kind: Service
@@ -25,20 +26,20 @@ metadata:
   name: peopleapi-svc
   namespace: monitoring
 labels:
-  operated-prometheus: 'true'  
+  operated-prometheus: true  
 spec:
   selector:
     app: peopleapi
     deploymentconfig: peopleapi
   ports:
     - protocol: TCP
-      port: 5000
-      targetPort: 5000
-      name: web
-    - protocol: TCP
       port: 7000
       targetPort: 7000
       name: 7000-tcp
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+      name: web
 ---
   kind: Route
   apiVersion: v1
