@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: peopleapi
-          image: peddadas/testhpa-repo:people1api
+          image: peddadas/testhpa-repo:people2api
           ports:
             - containerPort: 5000
 	    - containerPort: 7000
