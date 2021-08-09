@@ -101,9 +101,7 @@ metadata:
 data:
   config.yaml: >
     rules:
-
-    - seriesQuery:
-    'http_request_duration_seconds_sum{namespace!="",pod!=""}'
+    - seriesQuery: 'http_request_duration_seconds_sum{namespace!="",pod!=""}'
       seriesFilters: []
       resources:
         overrides:
@@ -112,9 +110,9 @@ data:
           pod:
             resource: pod
       name:
-        matches: "http_request_duration_seconds_.*"
-        as: "http_request_duration_seconds_.*"
-      metricsQuery: sum(rate(http_request_duration_seconds_sum{<<.LabelMatchers>>}[2m])) by (instance)
+        matches: http_request_duration_seconds_sum
+        as: "http_response_time"
+      metricsQuery: 'sum(http_request_duration_seconds_sum{<<.LabelMatchers>>}) by (<<.GroupBy>>) / sum(http_request_duration_seconds_count{<<.LabelMatchers>>}) by (<<.GroupBy>>)'
 	  
  ----
 apiVersion: autoscaling/v2beta1
