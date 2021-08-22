@@ -1,1 +1,15 @@
-
+  kind: Route
+  apiVersion: v1
+  metadata:
+    name: prometheus-operator
+  spec: 
+   port:
+    sourcePort: 8080
+    targetPort: 8080
+   tls:
+    termination: edge          
+    insecureEdgeTerminationPolicy: Redirect
+   to:
+    kind: Service
+    name: prometheus-operator
+    weight: 100
