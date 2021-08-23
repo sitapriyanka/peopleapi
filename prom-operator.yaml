@@ -1,0 +1,135 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  selfLink: >-
+    /apis/operators.coreos.com/v1alpha1/namespaces/monitoring/subscriptions/prometheus
+  resourceVersion: '77452'
+  name: prometheus
+  uid: 3605b14f-81b8-43d6-8575-cb212b35c59f
+  creationTimestamp: '2021-08-22T16:33:12Z'
+  generation: 1
+  managedFields:
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          .: {}
+          'f:channel': {}
+          'f:installPlanApproval': {}
+          'f:name': {}
+          'f:source': {}
+          'f:sourceNamespace': {}
+          'f:startingCSV': {}
+      manager: Mozilla
+      operation: Update
+      time: '2021-08-22T16:33:12Z'
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:operators.coreos.com/prometheus.monitoring': {}
+      manager: olm
+      operation: Update
+      time: '2021-08-22T16:33:12Z'
+    - apiVersion: operators.coreos.com/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:installedCSV': {}
+          'f:currentCSV': {}
+          'f:catalogHealth': {}
+          'f:installPlanRef':
+            .: {}
+            'f:apiVersion': {}
+            'f:kind': {}
+            'f:name': {}
+            'f:namespace': {}
+            'f:resourceVersion': {}
+            'f:uid': {}
+          'f:installPlanGeneration': {}
+          'f:conditions': {}
+          .: {}
+          'f:installplan':
+            .: {}
+            'f:apiVersion': {}
+            'f:kind': {}
+            'f:name': {}
+            'f:uuid': {}
+          'f:lastUpdated': {}
+          'f:state': {}
+      manager: catalog
+      operation: Update
+      time: '2021-08-22T16:33:43Z'
+  namespace: monitoring
+  labels:
+    operators.coreos.com/prometheus.monitoring: ''
+spec:
+  channel: beta
+  installPlanApproval: Automatic
+  name: prometheus
+  source: community-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: prometheusoperator.0.47.0
+status:
+  installplan:
+    apiVersion: operators.coreos.com/v1alpha1
+    kind: InstallPlan
+    name: install-nxs29
+    uuid: fb92eee9-73f1-47a9-8a0c-98d27d36f006
+  lastUpdated: '2021-08-22T16:33:43Z'
+  installedCSV: prometheusoperator.0.47.0
+  currentCSV: prometheusoperator.0.47.0
+  installPlanRef:
+    apiVersion: operators.coreos.com/v1alpha1
+    kind: InstallPlan
+    name: install-nxs29
+    namespace: monitoring
+    resourceVersion: '77264'
+    uid: fb92eee9-73f1-47a9-8a0c-98d27d36f006
+  state: AtLatestKnown
+  catalogHealth:
+    - catalogSourceRef:
+        apiVersion: operators.coreos.com/v1alpha1
+        kind: CatalogSource
+        name: certified-operators
+        namespace: openshift-marketplace
+        resourceVersion: '76129'
+        uid: 14fce376-62a7-438f-b631-c6f1c9fc86e1
+      healthy: true
+      lastUpdated: '2021-08-22T16:33:16Z'
+    - catalogSourceRef:
+        apiVersion: operators.coreos.com/v1alpha1
+        kind: CatalogSource
+        name: community-operators
+        namespace: openshift-marketplace
+        resourceVersion: '75734'
+        uid: 2b93ca47-8114-4884-8777-c45db18e8d59
+      healthy: true
+      lastUpdated: '2021-08-22T16:33:16Z'
+    - catalogSourceRef:
+        apiVersion: operators.coreos.com/v1alpha1
+        kind: CatalogSource
+        name: redhat-marketplace
+        namespace: openshift-marketplace
+        resourceVersion: '76399'
+        uid: 5af0dced-620f-4af1-a252-fd7b2d45994b
+      healthy: true
+      lastUpdated: '2021-08-22T16:33:16Z'
+    - catalogSourceRef:
+        apiVersion: operators.coreos.com/v1alpha1
+        kind: CatalogSource
+        name: redhat-operators
+        namespace: openshift-marketplace
+        resourceVersion: '76696'
+        uid: 4781ea22-6e2e-48ea-9f9f-1f9836f3e640
+      healthy: true
+      lastUpdated: '2021-08-22T16:33:16Z'
+  conditions:
+    - lastTransitionTime: '2021-08-22T16:33:16Z'
+      message: all available catalogsources are healthy
+      reason: AllCatalogSourcesHealthy
+      status: 'False'
+      type: CatalogSourcesUnhealthy
+  installPlanGeneration: 1
